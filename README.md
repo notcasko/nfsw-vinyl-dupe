@@ -40,8 +40,6 @@
 
 - **`VinylDuplicate.asi` (Native C++ Plugin)**:
   Hooks `nfsw.exe`. Registers the native `VinylShopDuplicateVinyl` engine command, clones the active 52-byte vinyl struct (transforms, UV projection, color zones, and mirror bitflags) in car memory, and refreshes the 3D render pipeline. Also provides a native message hook (`PeekMessageW`) as a fallback hotkey listener when running without a patched GFX.
-- **`VinylShop.gfx` (Scaleform UI Asset)**:
-  Patched Flash interface. Listens for the `D` key in ActionScript, dispatches `VinylShopDuplicateVinyl` to the ASI, and immediately calls `RefreshCurrentLayers()` so the UI counter (`6/31`) and layer palette update instantly without saving.
 - **`patch.py`**:
   A standalone Python utility using the bundled FFDec decompiler. Decompiles stock `VinylShop.gfx`, patches the 3 ActionScript files (`Command.as`, `VinylShopKeyboard.as`, `VinylLayerManager.as`), and recompiles a clean, modded `.gfx` without touching any unrelated assets.
 - **`build.bat`**:
